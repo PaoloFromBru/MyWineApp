@@ -86,8 +86,27 @@ const UploadIcon = ({ className="w-5 h-5" }) => (
 
 
 // --- Firebase Config ---
-const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-wine-cellar-app-v3';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCBsdxrVpBqirIxNCNgN1SPYHM7s2axaRA",
+  authDomain: "mywineapp.firebaseapp.com",
+  projectId: "mywineapp",
+  storageBucket: "mywineapp.firebasestorage.app",
+  messagingSenderId: "208476333397",
+  appId: "1:208476333397:web:480e850942953e8b8c7bdc",
+  measurementId: "G-95MENR8XZE"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-wine-cellar-app-v3';
 
 // --- Helper Components ---
 const Modal = ({ isOpen, onClose, title, children }) => {
